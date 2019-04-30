@@ -13,11 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "home.html"));
-});
-
-app.get("/favicon.ico", function(req, res) {
-  res.end();
+  res.send("this is working");
 });
 
 app.listen(PORT, function() {
