@@ -12,8 +12,17 @@ let PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
 app.get("/", function(req, res) {
-  res.send("this is working");
+  res.sendFile(path.join(__dirname, "home.html"));
+});
+
+app.get("/reservations", function(req, res) {
+  res.sendFile(path.join(__dirname, "reservations.html"));
+});
+
+app.get("/tables", function(req, res) {
+  res.sendFile(path.join(__dirname, "table.html"));
 });
 
 app.listen(PORT, function() {
