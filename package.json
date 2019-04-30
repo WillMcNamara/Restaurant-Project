@@ -1,0 +1,23 @@
+{
+  "name": "restaurant-project",
+  "version": "1.0.0",
+  "description": "group class activity",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WillMcNamara/Restaurant-Project.git"
+  },
+  "author": "will, matt, ryan, al",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WillMcNamara/Restaurant-Project/issues"
+  },
+  "homepage": "https://github.com/WillMcNamara/Restaurant-Project#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
