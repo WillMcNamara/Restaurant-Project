@@ -16,6 +16,10 @@ app.get("/", function(req, res) {
   res.send("This is Working");
 });
 
+app.get("/favicon.ico", function(req, res) {
+  res.end();
+});
+
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
