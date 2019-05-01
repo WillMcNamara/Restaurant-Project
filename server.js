@@ -37,6 +37,8 @@ app.get("/api/waitlist", function(req, res){
   res.json(waitlist);
 })
 
+
+//working post option with postman
 app.post("/api/tables", function(req, res){
   var newTable = req.body;
 
@@ -44,8 +46,12 @@ app.post("/api/tables", function(req, res){
 
   console.log(newTable);
 
-  tables.push(newTable);
-
+  if (tables.length < 5){
+    tables.push(newTable);
+  }
+  else {
+    waitlist.push(newTable);
+  }
   res.json(newTable);
 });
 
