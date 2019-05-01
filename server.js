@@ -12,7 +12,23 @@ let PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-var tables = [];
+var tables = [
+{
+  name: "Tony Soprano",
+  phone: "7126497478",
+  email: "bigtone380@gmail.com"
+},
+{
+  name: "Danny Greene",
+  phone: "2082762727",
+  email: "irisheyes@icloud.com"
+},
+{
+  name: " ‎Wo Shing Wo",
+  phone: "8179745731",
+  email: "yazukaOne@comcast.net"
+}
+];
 var waitlist = [];
 
 //gets for the 3 different pages
@@ -41,8 +57,6 @@ app.get("/api/waitlist", function(req, res){
 //working post option with postman
 app.post("/api/tables", function(req, res){
   var newTable = req.body;
-
-  newTable.name = newTable.name.replace(/\s+/g, "").toLowerCase();
 
   console.log(newTable);
 

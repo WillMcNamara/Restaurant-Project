@@ -59,6 +59,26 @@
 
     </div>
 
+<script>
+
+      $.get("/api/tables", function(data) {
+        console.log(data);
+        for (i = 0; i < data.length; i++){
+            $("#tableSection").append(data[i].name + "<br>");
+        }
+        
+      });
+   
+      $.get("/api/waitlist", function(data) {
+        console.log(data);
+        for (i = 0; i < data.length; i++){
+          $("#waitlistSection").append(data[i].name + "<br>");
+        }
+        
+      });
+   
+</script>
+
 </body>
 
 </html>
