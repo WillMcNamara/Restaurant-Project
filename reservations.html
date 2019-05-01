@@ -82,7 +82,7 @@
             email: $("#reserve_email").val().trim()
         };
 
-        $.post("http://localhost:8080/api/tables", newRes)
+        $.post("/api/tables", newRes)
             .then(function(data) {
                 console.log("reservations.html", data);
                 alert("Reservation Request Confirmed.  Please View Tables to see reservations and waiting list.");
