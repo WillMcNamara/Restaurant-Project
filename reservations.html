@@ -73,22 +73,22 @@
 </div>
 
 <script type="text/javascript">
-
+    $(document).ready(function(){
     $("#makeRes").on("click", function(event) {
         event.preventDefault();
         var newRes = {
-            name: $("reserve_name").val().trim(),
-            phone: $("reserve_phone").val().trim(),
-            email: $("reserve_email").val().trim()
+            name: $("#reserve_name").val().trim(),
+            phone: $("#reserve_phone").val().trim(),
+            email: $("#reserve_email").val().trim()
         };
 
-        $.post("/api/tables", newRes)
+        $.post("http://localhost:8080/api/tables", newRes)
             .then(function(data) {
                 console.log("reservations.html", data);
                 alert("Reservation Request Confirmed.  Please View Tables to see reservations and waiting list.");
             });
     });
-
+    })
 </script>
 
 </body>
