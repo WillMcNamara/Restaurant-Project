@@ -14,19 +14,19 @@
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <div class="jumbotron">
-            <h1 class="text-center"><i class="fa fa-bomb" aria-hidden="true"></i> Hot Restaurant</h1>
-            <hr>
-            <h2 class="text-center">Make your reservation</h2>
-            <br>
+    <div class="jumbotron">
+        <h1 class="text-center"><i class="fa fa-bomb" aria-hidden="true"></i> Hot Restaurant</h1>
+        <hr>
+        <h2 class="text-center">Make your reservation</h2>
+        <br>
     
-            <div class="text-center">
-                <a href="/table"><button type="button" class="btn btn-lg btn-primary"><i class="fa fa-rocket" aria-hidden="true"></i> View Tables</button></a>
-                <a href="/home"><button type="button" class="btn btn-lg btn-default"><i class="fa fa-home" aria-hidden="true"></i></button></a>
-            </div>
-        </div>
+        <div class="text-center">
+            <a href="/table"><button type="button" class="btn btn-lg btn-primary"><i class="fa fa-rocket" aria-hidden="true"></i> View Tables</button></a>
+            <a href="/home"><button type="button" class="btn btn-lg btn-default"><i class="fa fa-home" aria-hidden="true"></i></button></a>
+    </div>
+    </div>
 
         <div class="row">
             <div class="col-lg-12">
@@ -51,12 +51,12 @@
                                 <input type="text" class="form-control" id="reserve_email">
                             </div>
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="">Unique ID</label>
                                 <input type="text" class="form-control" id="reserve_uniqueID">
-                            </div>
+                            </div> -->
 
-                            <button type="submit" class="btn btn-primary submit">Submit</button>
+                            <button type="submit" class="btn btn-primary submit" id="makeRes">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -72,7 +72,24 @@
 
 </div>
 
+<script type="text/javascript">
+
+    $("#makeRes").on("click", function(event) {
+        event.preventDefault();
+        var newRes = {
+            name: $("reserve_name").val().trim(),
+            phone: $("reserve_phone").val().trim(),
+            email: $("reserve_email").val().trim()
+        };
+
+        $.post("/api/tables", newRes)
+            .then(function(data) {
+                console.log("reservations.html", data);
+                alert("Reservation Request Confirmed.  Please View Tables to see reservations and waiting list.");
+            });
+    });
+
+</script>
 
 </body>
-
 </html>
